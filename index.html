@@ -389,7 +389,7 @@
   <!-- ================= VOTACIÓN + PELEA ================= -->
   <section class="voto rv">
     <h3 class="sub">¿Niña o niño?</h3>
-    <p class="mini">¡Toca a tu campeón para votar! 👇</p>
+    <p class="mini">¡Elige a tu campeona o campeón! 👇</p>
 
     <div class="escena-wrap">
       <div class="banner-ganador" id="bannerGanador" role="status"></div>
@@ -755,7 +755,7 @@ function pintarVoto(){
     res.hidden = false;
     res.className = 'resultado ' + (v === 'niña' ? 'r-nina' : 'r-nino');
     res.innerHTML = v === 'niña'
-      ? '¡Tu campeón es la <b>NIÑA</b>! 👑💗'
+      ? '¡Tu campeona es la <b>NIÑA</b>! 👑💗'
       : '¡Tu campeón es el <b>NIÑO</b>! 👑💙';
   } else { res.hidden = true; }
 
@@ -779,7 +779,7 @@ function votar(v){
     burst(r.left + r.width/2, r.top + r.height/3, v === 'niña' ? COLORES_P : COLORES_A, 90);
   }
   vibrar([30,40,30]);
-  toast(v === 'niña' ? '¡Ganó la niña! 👑💗' : '¡Ganó el niño! 👑💙');
+  toast(v === 'niña' ? '¡Campeona: la niña! 👑💗' : '¡Campeón: el niño! 👑💙');
 
   // Registrar en el marcador en vivo (Firebase)
   if (window.fbRegistrarVoto) window.fbRegistrarVoto(v, anterior);
