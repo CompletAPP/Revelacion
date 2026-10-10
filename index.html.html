@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FDF4E9">
+<title>Revelación de Género 💕💙 · ¡Estás invitado!</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z' fill='%23E96FA0'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Caveat:wght@500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  :root{
+    --rosa:#F291B6;--rosa-f:#E96FA0;--rosa-s:#FBD3E3;
+    --azul:#63B8E3;--azul-f:#3E96C8;--azul-s:#C9E9F8;
+    --marron:#5A4030;--marron-o:#43302A;--tinta:#6B4F3A;
+    --crema:#FDF4E9;--crema2:#FFFDF7;
+  }
+  html{scroll-behavior:smooth}
+  body{margin:0;padding:14px 8px 34px;font-family:'Caveat','Comic Sans MS',cursive;font-size:21px;line-height:1.35;color:var(--tinta);background:#F6E9DA;overflow-x:hidden}
+  button{touch-action:manipulation}
+  button:focus-visible{outline:3px solid #7FC8EE;outline-offset:2px}
+
+  /* ===== Fondo ===== */
+  .fondo{position:fixed;inset:0;z-index:-1;background:#F6E9DA;overflow:hidden}
+  .fondo::before,.fondo::after{content:"";position:absolute;width:75vmax;height:75vmax;border-radius:50%}
+  .fondo::before{left:-30vmax;top:-26vmax;background:radial-gradient(closest-side,rgba(246,169,198,.55),transparent 70%)}
+  .fondo::after{right:-32vmax;bottom:-30vmax;background:radial-gradient(closest-side,rgba(127,200,238,.5),transparent 70%)}
+
+  /* ===== Tarjeta ===== */
+  .tarjeta{position:relative;max-width:470px;margin:0 auto;background:var(--crema);border-radius:26px;box-shadow:0 18px 50px rgba(90,60,40,.18);padding:26px 18px 24px;overflow:visible}
+  .tarjeta>*:not(.corazones){position:relative;z-index:1}
+  .corazones{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .corazones span{position:absolute;opacity:.5;color:var(--rosa);animation:sube var(--t,6s) ease-in-out infinite}
+  .corazones span.c-a{color:var(--azul)}
+  .corazones svg{width:100%;height:100%;display:block}
+  @keyframes sube{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-12px) rotate(8deg)}}
+
+  /* ===== Cabecera ===== */
+  .cabecera{position:relative;text-align:center;padding-top:8px}
+  .globos{position:absolute;top:-6px;width:104px;height:132px;pointer-events:none;z-index:2}
+  .globos.izq{left:-10px}.globos.der{right:-10px}
+  .gw{position:absolute;pointer-events:auto;cursor:pointer;animation:flotar 4s ease-in-out infinite alternate}
+  .gw svg{width:100%;height:auto;display:block;transform:rotate(var(--r,0deg));filter:drop-shadow(0 4px 6px rgba(90,60,40,.18))}
+  .izq .g1{left:0;top:10px;width:42px;--r:-12deg}
+  .izq .g2{left:36px;top:-4px;width:56px;--r:5deg;animation-delay:.6s}
+  .izq .g3{left:14px;top:58px;width:36px;--r:-4deg;animation-delay:1.2s;animation-duration:5s}
+  .der .g1{right:0;top:8px;width:44px;--r:12deg;animation-delay:.3s}
+  .der .g2{right:38px;top:-6px;width:58px;--r:-6deg;animation-delay:.9s}
+  .der .g3{right:12px;top:60px;width:38px;--r:5deg;animation-delay:1.5s;animation-duration:5.4s}
+  @keyframes flotar{to{transform:translateY(-9px)}}
+  .gw.pop{animation:pop .32s ease forwards}
+  @keyframes pop{35%{transform:scale(1.45);opacity:1}100%{transform:scale(0);opacity:0}}
+  .gw.renace{animation:renace .55s cubic-bezier(.2,1.6,.4,1)}
+  @keyframes renace{from{transform:scale(0)}to{transform:scale(1)}}
+
+  .corazon-split{display:block;background:none;border:none;padding:0;margin:0 auto;width:62px;height:62px;cursor:pointer;filter:drop-shadow(0 4px 8px rgba(90,60,40,.22));animation:latido 1.9s ease-in-out infinite}
+  .corazon-split:active{transform:scale(.88)}
+  .corazon-split svg{width:100%;height:100%;display:block}
+  @keyframes latido{0%,100%{transform:scale(1)}12%{transform:scale(1.12)}24%{transform:scale(1)}}
+
+  .invita{font-family:'Baloo 2',sans-serif;font-weight:600;font-size:17px;color:var(--marron);margin:12px 0 0}
+  .titulo{font-family:'Pacifico',cursive;font-weight:400;font-size:52px;line-height:1.15;margin:2px 0 0;color:var(--rosa-f);transform:rotate(-2deg);text-shadow:0 2px 0 rgba(255,255,255,.7)}
+  .titulo .l{display:inline-block;opacity:0;transform:translateY(-16px) scale(.5);animation:cae .55s cubic-bezier(.2,1.5,.4,1) forwards}
+  .titulo .l.a{color:var(--azul-f)}
+  @keyframes cae{to{opacity:1;transform:none}}
+  .titulo2{font-family:'Pacifico',cursive;font-weight:400;font-size:33px;color:var(--marron-o);margin:2px 0 0;transform:rotate(-2deg)}
+  .divisor{display:flex;align-items:center;gap:10px;justify-content:center;margin:14px auto 2px;max-width:300px}
+  .divisor .linea{flex:1;border-top:2.5px dashed var(--rosa)}
+  .divisor .linea.l-a{border-color:var(--azul)}
+  .divisor svg{width:18px;height:18px;color:var(--rosa-f)}
+
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .rv.visto{opacity:1;transform:none}
+
+  .intro{max-width:330px;margin:16px auto 20px;text-align:center;font-size:22px}
+  .intro b{color:var(--rosa-f)}
+
+  /* ===== Fecha / Hora / Lugar ===== */
+  .info{display:flex;align-items:stretch;text-align:center;gap:6px;margin-bottom:14px}
+  .info .col{flex:1;min-width:0}
+  .divv{border-left:2px dashed #EFB7CB;align-self:stretch;margin:6px 0}
+  .icono svg{width:42px;height:42px}
+  .ic-rosa{color:var(--rosa-f)}.ic-azul{color:var(--azul-f)}
+  .acuarela{position:relative;z-index:0;display:inline-block;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:20px;color:var(--marron);padding:1px 16px;margin-top:6px}
+  .acuarela::before{content:"";position:absolute;inset:-1px -5px;z-index:-1;background:var(--c,#F8B8D2);border-radius:58% 42% 55% 45%/60% 48% 52% 40%;transform:rotate(-2deg)}
+  .ap{--c:#F8B8D2}.aa{--c:#A8DBF4}
+  .valor{margin:6px 0 0;font-size:19px;line-height:1.25}
+  .valor b{font-size:21px}
+
+  .acciones{display:flex;gap:10px;margin-bottom:16px}
+  .chip{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;background:var(--crema2);border:2px dashed var(--rosa);border-radius:16px;padding:10px 6px;font-family:'Baloo 2',sans-serif;font-weight:600;font-size:15px;color:var(--marron);cursor:pointer;transition:transform .15s}
+  .chip:active{transform:scale(.96)}
+  .chip svg{width:19px;height:19px}
+  .chip.rosa svg{color:var(--rosa-f)}
+  .chip.azul{border-color:var(--azul)}
+  .chip.azul svg{color:var(--azul-f)}
+
+  .nota{border:2px dashed var(--azul);border-radius:18px;background:rgba(255,255,255,.55);padding:14px 16px;text-align:center;font-size:20.5px;margin-bottom:18px}
+  .nota b{color:var(--azul-f)}
+
+  h3.sub{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:21px;color:var(--marron);margin:0 0 10px}
+  .mini{margin:0 0 12px;font-size:18px;color:#8A6A52}
+
+  /* ===== Vestimenta ===== */
+  .vestimenta{border:2px dashed var(--rosa);border-radius:20px;padding:14px 12px 16px;text-align:center;margin-bottom:18px;background:rgba(255,255,255,.45)}
+  .colores{display:flex;align-items:stretch;gap:8px}
+  .lado{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+  .lado>svg{width:40px;height:40px}
+  .nombre{font-family:'Pacifico',cursive;font-size:25px;line-height:1.2}
+  .nombre.n{color:var(--rosa-f)}.nombre.a{color:var(--azul-f)}
+  .lado small{font-size:17px;color:#8A6A52}
+  .sep{border-left:2px dashed #EFB7CB;margin:4px 0}
+  .badge{display:inline-block;margin-top:5px;background:var(--rosa-f);color:#fff;font-family:'Baloo 2',sans-serif;font-size:12.5px;font-weight:700;padding:2px 10px;border-radius:999px}
+  .badge.azul{background:var(--azul-f)}
+
+  /* ============================================================
+     PELEA DE BEBÉS — data-estado: "pelea" | "nina" | "nino"
+     ============================================================ */
+  .escena-wrap{position:relative;max-width:340px;margin:0 auto}
+  .banner-ganador{position:absolute;top:0;left:50%;transform:translateX(-50%) scale(0);background:linear-gradient(180deg,#FFD65C,#FFC24D);color:#7A4B1E;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:16px;padding:4px 16px;border-radius:999px;box-shadow:0 4px 12px rgba(90,60,40,.28);z-index:3;white-space:nowrap;pointer-events:none;transition:transform .45s cubic-bezier(.2,1.6,.4,1)}
+  .banner-ganador.ver{transform:translateX(-50%) scale(1)}
+  .escena-pelea{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:6px;min-height:170px;padding-top:30px}
+  .lado-bebe{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+  .etq{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:14px;padding:1px 12px;border-radius:999px;margin-bottom:2px;transition:background .25s,color .25s}
+  .e-n{background:#FBD9E7;color:#C2497E}
+  .e-a{background:#D2ECF9;color:#2E7BA6}
+  .bebe{width:100px;flex:none;cursor:pointer;transform-origin:50% 100%;user-select:none;transition:transform .35s ease}
+  .bebe svg{display:block;width:100%;height:auto}
+  .bebe:active svg{transform:scale(.94)}
+  .polvo{position:absolute;left:50%;bottom:26px;transform:translate(-50%,0);font-size:30px;pointer-events:none;z-index:2;filter:drop-shadow(0 2px 2px rgba(90,60,40,.25));display:none}
+  .escena-pelea[data-estado="pelea"] .polvo{display:block;animation:golpe .8s ease-in-out infinite}
+  @keyframes golpe{0%,100%{transform:translate(-50%,0) scale(.55) rotate(-10deg);opacity:.45}45%{transform:translate(-50%,0) scale(1.3) rotate(8deg);opacity:1}}
+
+  .escena-pelea[data-estado="pelea"] .bebe-nina{animation:empujaI .85s ease-in-out infinite}
+  .escena-pelea[data-estado="pelea"] .bebe-nino{animation:empujaD .85s ease-in-out infinite}
+  @keyframes empujaI{0%,100%{transform:rotate(0) translateX(0)}45%{transform:rotate(10deg) translateX(12px)}62%{transform:rotate(6deg) translateX(7px)}}
+  @keyframes empujaD{0%,100%{transform:rotate(0) translateX(0)}45%{transform:rotate(-10deg) translateX(-12px)}62%{transform:rotate(-6deg) translateX(-7px)}}
+
+  .cara-triste,.corona,.destellos,.mareo{display:none}
+
+  .escena-pelea[data-estado="nina"] .bebe-nina{animation:celebra .75s ease-in-out infinite;z-index:2}
+  .escena-pelea[data-estado="nina"] .bebe-nina .corona{display:inline;animation:coronaPop .6s cubic-bezier(.2,1.7,.4,1)}
+  .escena-pelea[data-estado="nina"] .bebe-nina .destellos{display:inline}
+  .escena-pelea[data-estado="nina"] .lado-nina .etq{background:var(--rosa-f);color:#fff}
+  .escena-pelea[data-estado="nina"] .lado-nina .etq::after{content:" 👑"}
+  .escena-pelea[data-estado="nina"] .bebe-nino{animation:caeD .6s ease-out forwards}
+  .escena-pelea[data-estado="nina"] .bebe-nino .cara-feliz{display:none}
+  .escena-pelea[data-estado="nina"] .bebe-nino .cara-triste{display:inline}
+  .escena-pelea[data-estado="nina"] .bebe-nino .mareo{display:inline;animation:gira 1.6s linear infinite}
+  .escena-pelea[data-estado="nina"] .bebe-nino .lagrima{animation:lagrimita 1.3s ease-in .3s infinite}
+
+  .escena-pelea[data-estado="nino"] .bebe-nino{animation:celebra .75s ease-in-out infinite;z-index:2}
+  .escena-pelea[data-estado="nino"] .bebe-nino .corona{display:inline;animation:coronaPop .6s cubic-bezier(.2,1.7,.4,1)}
+  .escena-pelea[data-estado="nino"] .bebe-nino .destellos{display:inline}
+  .escena-pelea[data-estado="nino"] .lado-nino .etq{background:var(--azul-f);color:#fff}
+  .escena-pelea[data-estado="nino"] .lado-nino .etq::after{content:" 👑"}
+  .escena-pelea[data-estado="nino"] .bebe-nina{animation:caeI .6s ease-out forwards}
+  .escena-pelea[data-estado="nino"] .bebe-nina .cara-feliz{display:none}
+  .escena-pelea[data-estado="nino"] .bebe-nina .cara-triste{display:inline}
+  .escena-pelea[data-estado="nino"] .bebe-nina .mareo{display:inline;animation:gira 1.6s linear infinite}
+  .escena-pelea[data-estado="nino"] .bebe-nina .lagrima{animation:lagrimita 1.3s ease-in .3s infinite}
+
+  @keyframes celebra{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-16px) rotate(-7deg)}60%{transform:translateY(0) rotate(6deg)}}
+  @keyframes caeD{0%{transform:rotate(0)}100%{transform:rotate(76deg) translateY(10px)}}
+  @keyframes caeI{0%{transform:rotate(0)}100%{transform:rotate(-76deg) translateY(10px)}}
+  .corona{transform-box:fill-box;transform-origin:50% 100%}
+  @keyframes coronaPop{0%{transform:scale(0) rotate(-25deg)}70%{transform:scale(1.25) rotate(6deg)}100%{transform:scale(1) rotate(0)}}
+  .destellos path{transform-box:fill-box;transform-origin:center;animation:brilla 1.1s ease-in-out infinite}
+  .destellos .d2{animation-delay:.55s}
+  .destellos .d3{animation-delay:.28s}
+  @keyframes brilla{0%,100%{opacity:.15;transform:scale(.55) rotate(0)}50%{opacity:1;transform:scale(1.2) rotate(25deg)}}
+  .mareo{transform-box:fill-box;transform-origin:center}
+  @keyframes gira{to{transform:rotate(360deg)}}
+  .lagrima{transform-box:fill-box}
+  @keyframes lagrimita{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(9px)}}
+
+  /* ===== Votación ===== */
+  .voto{border:2px dashed var(--azul);border-radius:20px;padding:14px 12px 16px;text-align:center;margin-bottom:18px;background:rgba(255,255,255,.45)}
+  .btns-voto{display:flex;gap:12px;justify-content:center;margin-top:12px}
+  .btn-voto{position:relative;flex:1;max-width:150px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 6px;border-radius:20px;border:2.5px solid transparent;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:19px;cursor:pointer;transition:transform .15s,box-shadow .2s,border-color .2s;user-select:none}
+  .btn-voto svg{width:34px;height:34px}
+  .bv-nina{background:#FBD9E7;color:#C2497E}
+  .bv-nino{background:#D2ECF9;color:#2E7BA6}
+  .btn-voto:active{transform:scale(.95)}
+  .btn-voto.sel{border-color:currentColor;box-shadow:0 8px 18px rgba(90,60,40,.16);transform:scale(1.05)}
+  .btn-voto.sel::after{content:"✔";position:absolute;top:-9px;right:-9px;width:23px;height:23px;display:grid;place-items:center;background:#3DBE7B;color:#fff;font-size:12px;border-radius:50%;border:2px solid #fff}
+  .resultado{margin-top:14px;padding:10px 12px;border-radius:16px;font-size:20px;animation:aparecer .45s}
+  .resultado.r-nina{border:2px dashed var(--rosa-f);background:#FFF1F7}
+  .resultado.r-nino{border:2px dashed var(--azul-f);background:#F0FAFF}
+  @keyframes aparecer{from{opacity:0;transform:translateY(8px)}}
+
+  /* ===== Marcador en vivo ===== */
+  .marcador{max-width:330px;margin:16px auto 2px}
+  .m-titulo{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:15px;color:#8A6A52;margin:0 0 6px}
+  .m-fila{display:flex;align-items:center;gap:10px}
+  .m-num{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:22px;min-width:52px}
+  .m-num.n{color:#C2497E;text-align:right}
+  .m-num.a{color:#2E7BA6}
+  .m-pista{position:relative;flex:1;height:22px;border-radius:999px;background:#CBE9F8;overflow:hidden;border:2px solid rgba(90,60,40,.12)}
+  .m-llena{position:absolute;left:0;top:0;bottom:0;width:50%;background:linear-gradient(180deg,#FBC0D8,#F291B6);transition:width .8s cubic-bezier(.2,1,.3,1)}
+  .m-total{margin:6px 0 0;font-size:17px;color:#8A6A52}
+
+  /* ===== Detallito ===== */
+  .detalles{border:2px dashed var(--rosa);border-radius:20px;padding:14px 14px 16px;text-align:center;margin-bottom:18px;background:rgba(255,255,255,.45)}
+  .regalos{display:flex;gap:10px;margin:6px 0 12px}
+  .regalo{flex:1;border-radius:16px;padding:10px 6px;display:flex;flex-direction:column;align-items:center;gap:1px}
+  .regalo svg{width:38px;height:38px}
+  .regalo b{font-family:'Baloo 2',sans-serif;font-size:16.5px}
+  .regalo small{font-size:16px;color:#8A6A52}
+  .g-r{background:#FBE0EB}.g-r b{color:#C2497E}
+  .g-a{background:#DFF2FC}.g-a b{color:#2E7BA6}
+  .detalles .txt{font-size:20px;margin:0}
+  .t-rosa{color:var(--rosa-f)}.t-azul{color:var(--azul-f)}
+
+  /* ===== Cuenta regresiva ===== */
+  .cuenta{background:rgba(255,255,255,.45);border:2px dashed var(--azul);border-radius:20px;padding:14px 8px 16px;text-align:center;margin-bottom:20px}
+  .tiempos{display:flex;gap:8px;justify-content:center}
+  .tc{width:72px;padding:9px 2px 7px;font-family:'Baloo 2',sans-serif}
+  .tc .num{font-weight:800;font-size:25px;line-height:1;color:var(--marron-o);display:block}
+  .tc .lab{font-family:'Caveat',cursive;font-weight:600;font-size:16px;color:#7A5A44}
+  .tc.p{background:var(--rosa-s);border-radius:46% 54% 52% 48%/55% 45% 55% 45%;transform:rotate(-1.5deg)}
+  .tc.a{background:var(--azul-s);border-radius:54% 46% 48% 52%/45% 55% 45% 55%;transform:rotate(1.5deg)}
+  .num.tick{animation:pulsito .25s}
+  @keyframes pulsito{50%{transform:scale(1.22)}}
+  .llego{font-family:'Baloo 2',sans-serif;font-weight:700;font-size:22px;color:var(--rosa-f);margin:6px 0}
+
+  /* ===== RSVP ===== */
+  .rsvp{display:flex;flex-direction:column;gap:10px;max-width:340px;margin:0 auto 8px}
+  .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 14px;border-radius:999px;font-family:'Baloo 2',sans-serif;font-weight:700;font-size:17.5px;cursor:pointer;border:none;transition:transform .15s}
+  .btn:active{transform:scale(.96)}
+  .btn svg{width:22px;height:22px}
+  .btn-wsp{background:linear-gradient(180deg,#3FD06F,#22B358);color:#fff;box-shadow:0 8px 18px rgba(34,179,88,.35)}
+  .btn-comp{background:var(--crema2);border:2px dashed var(--marron);color:var(--marron)}
+
+  /* ===== Pie ===== */
+  .pie{position:relative;margin-top:26px;text-align:center;min-height:118px}
+  .oso{position:absolute;bottom:-6px;width:96px;cursor:pointer;transition:transform .15s}
+  .oso:active{transform:scale(.92)}
+  .oso svg{width:100%;display:block;filter:drop-shadow(0 5px 8px rgba(90,60,40,.22))}
+  .oso-i{left:-10px;transform:rotate(-5deg)}
+  .oso-d{right:-10px;transform:rotate(5deg)}
+  .esperamos{font-family:'Pacifico',cursive;font-size:33px;color:var(--marron-o);margin:14px 0 0;cursor:pointer}
+  .pie .mini{margin:2px 0 0}
+
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:rgba(67,48,42,.94);color:#FFF6EC;padding:9px 20px;border-radius:999px;font-size:20px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:90;max-width:86vw;text-align:center}
+  #toast.ver{opacity:1;transform:translateX(-50%)}
+  #btnMusica{position:fixed;right:14px;bottom:16px;width:48px;height:48px;border-radius:50%;background:var(--crema2);border:2px dashed #D9A583;color:#A9713F;display:grid;place-items:center;cursor:pointer;z-index:70;box-shadow:0 6px 14px rgba(90,60,40,.22);transition:transform .15s}
+  #btnMusica:active{transform:scale(.92)}
+  #btnMusica svg{width:22px;height:22px}
+  #btnMusica.on{border-color:var(--rosa-f);color:var(--rosa-f);animation:latido 1.6s ease-in-out infinite}
+  #fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:80}
+
+  @media(max-width:380px){
+    .titulo{font-size:42px}.titulo2{font-size:28px}
+    .globos{transform:scale(.8)}.globos.izq{transform-origin:top left}.globos.der{transform-origin:top right}
+    .tc{width:66px}.tc .num{font-size:22px}
+    .bebe{width:86px}
+    .escena-pelea{min-height:152px;padding-top:26px}
+    .polvo{font-size:24px;bottom:22px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .rv,.titulo .l{opacity:1;transform:none}
+    .escena-pelea[data-estado="nina"] .bebe-nino{transform:rotate(76deg) translateY(10px)!important}
+    .escena-pelea[data-estado="nino"] .bebe-nina{transform:rotate(-76deg) translateY(10px)!important}
+  }
+</style>
+</head>
+<body>
+<div class="fondo" aria-hidden="true"></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<button id="btnMusica" aria-label="Activar o apagar la música">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+
+<main class="tarjeta">
+
+  <div class="corazones" aria-hidden="true">
+    <span style="top:2.6%;left:4%;width:15px;height:15px"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span class="c-a" style="top:5%;right:7%;width:12px;height:12px;--t:7s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span class="c-a" style="top:15%;left:2%;width:13px;height:13px;--t:5.5s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span style="top:24%;right:3%;width:16px;height:16px;--t:6.5s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span style="top:36%;left:5%;width:12px;height:12px;--t:7.5s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span class="c-a" style="top:46%;right:4%;width:14px;height:14px"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span style="top:58%;left:3%;width:15px;height:15px;--t:6.8s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span class="c-a" style="top:70%;right:6%;width:12px;height:12px;--t:5.2s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span style="top:82%;left:6%;width:13px;height:13px;--t:7.2s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+    <span class="c-a" style="top:90%;right:4%;width:15px;height:15px;--t:6.2s"><svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg></span>
+  </div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="cabecera">
+    <div class="globos izq" aria-hidden="true">
+      <span class="gw g1" data-c="p"></span><span class="gw g2" data-c="p"></span><span class="gw g3" data-c="p"></span>
+    </div>
+    <div class="globos der" aria-hidden="true">
+      <span class="gw g1" data-c="a"></span><span class="gw g2" data-c="a"></span><span class="gw g3" data-c="a"></span>
+    </div>
+
+    <button class="corazon-split" id="btnCorazon" aria-label="Un toque de sorpresa">
+      <svg viewBox="0 0 24 24">
+        <defs>
+          <clipPath id="mitadI"><rect x="0" y="0" width="12" height="24"/></clipPath>
+          <clipPath id="mitadD"><rect x="12" y="0" width="12" height="24"/></clipPath>
+        </defs>
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#F291B6" clip-path="url(#mitadI)"/>
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="#63B8E3" clip-path="url(#mitadD)"/>
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="none" stroke="#fff" stroke-width=".8" opacity=".8"/>
+      </svg>
+    </button>
+
+    <p class="invita rv">¡Estás invitado a nuestra</p>
+    <h1 class="titulo" id="titulo">Revelación</h1>
+    <h2 class="titulo2 rv">de Género</h2>
+
+    <div class="divisor rv">
+      <span class="linea"></span>
+      <svg viewBox="0 0 24 24"><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="currentColor"/></svg>
+      <span class="linea l-a"></span>
+    </div>
+  </header>
+
+  <p class="intro rv">Será un día <b>muy especial</b> y queremos compartirlo con las personas más importantes de nuestra vida…</p>
+
+  <!-- ================= FECHA / HORA / LUGAR ================= -->
+  <section class="info rv">
+    <div class="col">
+      <div class="icono ic-rosa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.2" y="4.8" width="17.6" height="16.4" rx="3.2"/><path d="M3.2 9.6h17.6M8 2.8v3.6M16 2.8v3.6"/><path d="M12 17.8c-2.5-1.7-4.2-3.3-4.2-5.1a2.4 2.4 0 0 1 4.2-1.6 2.4 2.4 0 0 1 4.2 1.6c0 1.8-1.7 3.4-4.2 5.1z" fill="currentColor" stroke="none" opacity=".9"/></svg>
+      </div>
+      <span class="acuarela ap">Fecha</span>
+      <p class="valor">Sábado<br><b>24 de octubre</b></p>
+    </div>
+    <div class="divv"></div>
+    <div class="col">
+      <div class="icono ic-azul">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13.2" r="8.2"/><path d="M12 9.4v4l2.7 1.7"/><path d="M9.8 2.6h4.4"/><path d="M12 2.6v2.2"/></svg>
+      </div>
+      <span class="acuarela aa">Hora</span>
+      <p class="valor"><b>1:00</b> pm</p>
+    </div>
+    <div class="divv"></div>
+    <div class="col">
+      <div class="icono ic-azul">
+        <svg viewBox="0 0 24 24"><path d="M12 21.5S5.2 15.6 5.2 10.3a6.8 6.8 0 1 1 13.6 0C18.8 15.6 12 21.5 12 21.5z" fill="#63B8E3" stroke="#3E96C8" stroke-width="1.2"/><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#F8A9C8" transform="translate(12 9.6) scale(.62) translate(-12 -13.6)"/></svg>
+      </div>
+      <span class="acuarela ap">Lugar</span>
+      <p class="valor"><b>Ferro Chill</b><br>San Rafael de Alajuela</p>
+    </div>
+  </section>
+
+  <div class="acciones rv">
+    <button class="chip rosa" id="btnCal" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.2" y="4.8" width="17.6" height="16.4" rx="3.2"/><path d="M3.2 9.6h17.6M8 2.8v3.6M16 2.8v3.6"/></svg>
+      Guardar fecha
+    </button>
+    <button class="chip azul" id="btnMapa" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5S5.2 15.6 5.2 10.3a6.8 6.8 0 1 1 13.6 0C18.8 15.6 12 21.5 12 21.5z"/><path d="M12 13.8c-1.5-1-2.5-2-2.5-3.2a1.5 1.5 0 0 1 2.5-1 1.5 1.5 0 0 1 2.5 1c0 1.2-1 2.2-2.5 3.2z" fill="currentColor" stroke="none"/></svg>
+      Ver ubicación
+    </button>
+  </div>
+
+  <section class="nota rv">
+    Para quienes gusten disfrutar de algo del menú, cada persona podrá elegir y cubrir su consumo en el restaurante. <b>¡Nos encantará compartir este momento tan especial con ustedes!</b>
+  </section>
+
+  <!-- ================= VESTIMENTA ================= -->
+  <section class="vestimenta rv">
+    <h3 class="sub">Código de vestimenta</h3>
+    <div class="colores">
+      <div class="lado">
+        <svg viewBox="0 0 24 24"><path d="M9.2 2.6l1.5 3.9M14.8 2.6l-1.5 3.9" fill="none" stroke="#E0679B" stroke-width="1.4" stroke-linecap="round"/><path d="M10.4 6.3h3.2l1.5 3H8.9z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.2" stroke-linejoin="round"/><path d="M8.9 9.3h6.2c1.5 3.9 2.8 6.7 3.7 9.4-2.3 1-4.4 1.5-6.8 1.5s-4.5-.5-6.8-1.5c.9-2.7 2.2-5.5 3.7-9.4z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.2" stroke-linejoin="round"/><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#fff" transform="translate(12 14.2) scale(.5) translate(-12 -13.6)"/></svg>
+        <span class="nombre n">Rosa</span>
+        <small>si crees que es niña</small>
+        <span class="badge" id="badgeN" hidden>¡tu color! 💗</span>
+      </div>
+      <div class="sep"></div>
+      <div class="lado">
+        <svg viewBox="0 0 24 24"><path d="M12 2.4C10.6 2.4 9.4 2.8 8.8 3.5L5.8 5.2l1.5 3.7 1.2-.9v9.6c0 1.3 1 2.3 2.3 2.3h2.4c1.3 0 2.3-1 2.3-2.3V8l1.2.9 1.5-3.7-3-1.7C14.6 2.8 13.4 2.4 12 2.4z" fill="#7CC5E9" stroke="#3E96C8" stroke-width="1.2" stroke-linejoin="round"/><path d="M8.8 3.5C9.8 4.9 14.2 4.9 15.2 3.5" fill="none" stroke="#3E96C8" stroke-width="1.2"/><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#fff" transform="translate(12 10.8) scale(.5) translate(-12 -13.6)"/></svg>
+        <span class="nombre a">Azul</span>
+        <small>si crees que es niño</small>
+        <span class="badge azul" id="badgeO" hidden>¡tu color! 💙</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VOTACIÓN + PELEA ================= -->
+  <section class="voto rv">
+    <h3 class="sub">¿Niña o niño?</h3>
+    <p class="mini">¡Toca a tu campeón para votar! 👇</p>
+
+    <div class="escena-wrap">
+      <div class="banner-ganador" id="bannerGanador" role="status"></div>
+
+      <div class="escena-pelea" id="escenaPelea" data-estado="pelea">
+
+        <div class="lado-bebe lado-nina">
+          <span class="etq e-n">Niña</span>
+          <div class="bebe bebe-nina" id="bebeNina" data-voto="niña" role="button" tabindex="0" aria-label="Votar: será niña">
+            <svg viewBox="0 -22 120 162" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="137" rx="33" ry="5.5" fill="rgba(90,60,40,.08)"/>
+              <ellipse cx="46" cy="126" rx="10.5" ry="8.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <ellipse cx="74" cy="126" rx="10.5" ry="8.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <ellipse cx="60" cy="97" rx="29" ry="26" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <path d="M32.5 101 q27.5 24 55 0 q-3 19 -27.5 19 q-24.5 0 -27.5 -19 z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.6"/>
+              <path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#fff" opacity=".9" transform="translate(60 116) scale(.55) translate(-12 -13.6)"/>
+              <ellipse cx="33" cy="95" rx="7.5" ry="13" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6" transform="rotate(22 33 95)"/>
+              <ellipse cx="90" cy="88" rx="7.5" ry="14" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6" transform="rotate(62 90 88)"/>
+              <circle cx="102" cy="82" r="5.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <circle cx="29" cy="48" r="6" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <circle cx="91" cy="48" r="6" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <circle cx="60" cy="46" r="31" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <path d="M60 14 C52.5 3 40 5.5 42.5 14.5 C44 21.5 54.5 21.5 60 14 z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.5"/>
+              <path d="M60 14 C67.5 3 80 5.5 77.5 14.5 C76 21.5 65.5 21.5 60 14 z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.5"/>
+              <circle cx="60" cy="14" r="4.6" fill="#EE7FA9" stroke="#E0679B" stroke-width="1.5"/>
+              <g class="cara-feliz">
+                <path d="M43.5 44 q4.5 -5.5 9 0" fill="none" stroke="#4A342A" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M67.5 44 q4.5 -5.5 9 0" fill="none" stroke="#4A342A" stroke-width="2.6" stroke-linecap="round"/>
+                <ellipse cx="41" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".7"/>
+                <ellipse cx="79" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".7"/>
+                <path d="M53 56 q7 7 14 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+              </g>
+              <g class="cara-triste">
+                <path d="M42 37.5 l9 3.5 M78 37.5 l-9 3.5" fill="none" stroke="#4A342A" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="48" cy="45" r="2.7" fill="#4A342A"/>
+                <circle cx="72" cy="45" r="2.7" fill="#4A342A"/>
+                <ellipse cx="41" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".5"/>
+                <ellipse cx="79" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".5"/>
+                <path d="M53 60 q7 -6 14 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+                <path class="lagrima" d="M76.5 49 c1.8 3 3 4.7 3 6.5 a3 3 0 1 1 -6 0 c0 -1.8 1.2 -3.5 3 -6.5 z" fill="#7CC5E9"/>
+              </g>
+              <g class="corona">
+                <path d="M45 4 L43.5 -8 L50.5 -1.5 L56 -11 L60 -3 L64 -11 L69.5 -1.5 L76.5 -8 L75 4 z" fill="#FFD65C" stroke="#E8A93C" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="60" cy="0" r="2" fill="#F58FB4"/>
+              </g>
+              <g class="destellos" fill="#FFD65C">
+                <path class="d1" d="M33 -3 L34.5 .5 L38 2 L34.5 3.5 L33 7 L31.5 3.5 L28 2 L31.5 .5 Z"/>
+                <path class="d2" d="M87 -3 L88.5 .5 L92 2 L88.5 3.5 L87 7 L85.5 3.5 L84 2 L85.5 .5 Z"/>
+                <path class="d3" d="M60 -20.5 L61.4 -17.4 L64.5 -16 L61.4 -14.6 L60 -11.5 L58.6 -14.6 L55.5 -16 L58.6 -17.4 Z"/>
+              </g>
+              <g class="mareo" fill="#FFC94D">
+                <path d="M36 5 L37.5 8.5 L41 10 L37.5 11.5 L36 15 L34.5 11.5 L31 10 L34.5 8.5 Z"/>
+                <path d="M60 -11 L61.5 -7.5 L65 -6 L61.5 -4.5 L60 -1 L58.5 -4.5 L55 -6 L58.5 -7.5 Z"/>
+                <path d="M84 5 L85.5 8.5 L89 10 L85.5 11.5 L84 15 L82.5 11.5 L79 10 L82.5 8.5 Z"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <span class="polvo" aria-hidden="true">💥</span>
+
+        <div class="lado-bebe lado-nino">
+          <span class="etq e-a">Niño</span>
+          <div class="bebe bebe-nino" id="bebeNino" data-voto="niño" role="button" tabindex="0" aria-label="Votar: será niño">
+            <svg viewBox="0 -22 120 162" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="60" cy="137" rx="33" ry="5.5" fill="rgba(90,60,40,.08)"/>
+              <ellipse cx="46" cy="126" rx="10.5" ry="8.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <ellipse cx="74" cy="126" rx="10.5" ry="8.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <ellipse cx="60" cy="97" rx="29" ry="26" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <path d="M32.5 101 q27.5 24 55 0 q-3 19 -27.5 19 q-24.5 0 -27.5 -19 z" fill="#7CC5E9" stroke="#3E96C8" stroke-width="1.6"/>
+              <circle cx="54" cy="114.5" r="1.5" fill="#D9F1FD"/>
+              <circle cx="66" cy="114.5" r="1.5" fill="#D9F1FD"/>
+              <ellipse cx="30" cy="88" rx="7.5" ry="14" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6" transform="rotate(-62 30 88)"/>
+              <circle cx="18" cy="82" r="5.5" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <ellipse cx="87" cy="95" rx="7.5" ry="13" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6" transform="rotate(-22 87 95)"/>
+              <circle cx="29" cy="48" r="6" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <circle cx="91" cy="48" r="6" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <circle cx="60" cy="46" r="31" fill="#FFE9D6" stroke="#E0A886" stroke-width="1.6"/>
+              <path d="M58 16 C56.5 6.5 65 3.5 67.5 8 C63.5 6.5 61.5 10 62 16" fill="none" stroke="#B98A5A" stroke-width="2.4" stroke-linecap="round"/>
+              <g class="cara-feliz">
+                <path d="M43.5 44 q4.5 -5.5 9 0" fill="none" stroke="#4A342A" stroke-width="2.6" stroke-linecap="round"/>
+                <path d="M67.5 44 q4.5 -5.5 9 0" fill="none" stroke="#4A342A" stroke-width="2.6" stroke-linecap="round"/>
+                <ellipse cx="41" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".7"/>
+                <ellipse cx="79" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".7"/>
+                <path d="M53 56 q7 7 14 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+              </g>
+              <g class="cara-triste">
+                <path d="M42 37.5 l9 3.5 M78 37.5 l-9 3.5" fill="none" stroke="#4A342A" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="48" cy="45" r="2.7" fill="#4A342A"/>
+                <circle cx="72" cy="45" r="2.7" fill="#4A342A"/>
+                <ellipse cx="41" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".5"/>
+                <ellipse cx="79" cy="54" rx="4.6" ry="3" fill="#F8B8C8" opacity=".5"/>
+                <path d="M53 60 q7 -6 14 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+                <path class="lagrima" d="M76.5 49 c1.8 3 3 4.7 3 6.5 a3 3 0 1 1 -6 0 c0 -1.8 1.2 -3.5 3 -6.5 z" fill="#7CC5E9"/>
+              </g>
+              <g class="corona">
+                <path d="M45 14 L43.5 2 L50.5 8.5 L56 -1 L60 7 L64 -1 L69.5 8.5 L76.5 2 L75 14 z" fill="#FFD65C" stroke="#E8A93C" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="60" cy="9" r="2" fill="#6FC1E8"/>
+              </g>
+              <g class="destellos" fill="#FFD65C">
+                <path class="d1" d="M33 -2 L34.5 1.5 L38 3 L34.5 4.5 L33 8 L31.5 4.5 L28 3 L31.5 1.5 Z"/>
+                <path class="d2" d="M87 -2 L88.5 1.5 L92 3 L88.5 4.5 L87 8 L85.5 4.5 L84 3 L85.5 1.5 Z"/>
+                <path class="d3" d="M60 -16.5 L61.4 -13.4 L64.5 -12 L61.4 -10.6 L60 -7.5 L58.6 -10.6 L55.5 -12 L58.6 -13.4 Z"/>
+              </g>
+              <g class="mareo" fill="#FFC94D">
+                <path d="M36 5 L37.5 8.5 L41 10 L37.5 11.5 L36 15 L34.5 11.5 L31 10 L34.5 8.5 Z"/>
+                <path d="M60 -11 L61.5 -7.5 L65 -6 L61.5 -4.5 L60 -1 L58.5 -4.5 L55 -6 L58.5 -7.5 Z"/>
+                <path d="M84 5 L85.5 8.5 L89 10 L85.5 11.5 L84 15 L82.5 11.5 L79 10 L82.5 8.5 Z"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="btns-voto">
+      <button class="btn-voto bv-nina" data-voto="niña" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24"><path d="M9.2 2.6l1.5 3.9M14.8 2.6l-1.5 3.9" fill="none" stroke="#E0679B" stroke-width="1.4" stroke-linecap="round"/><path d="M10.4 6.3h3.2l1.5 3H8.9z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.2" stroke-linejoin="round"/><path d="M8.9 9.3h6.2c1.5 3.9 2.8 6.7 3.7 9.4-2.3 1-4.4 1.5-6.8 1.5s-4.5-.5-6.8-1.5c.9-2.7 2.2-5.5 3.7-9.4z" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        <span>Niña</span>
+      </button>
+      <button class="btn-voto bv-nino" data-voto="niño" type="button" aria-pressed="false">
+        <svg viewBox="0 0 24 24"><path d="M12 2.4C10.6 2.4 9.4 2.8 8.8 3.5L5.8 5.2l1.5 3.7 1.2-.9v9.6c0 1.3 1 2.3 2.3 2.3h2.4c1.3 0 2.3-1 2.3-2.3V8l1.2.9 1.5-3.7-3-1.7C14.6 2.8 13.4 2.4 12 2.4z" fill="#7CC5E9" stroke="#3E96C8" stroke-width="1.2" stroke-linejoin="round"/><path d="M8.8 3.5C9.8 4.9 14.2 4.9 15.2 3.5" fill="none" stroke="#3E96C8" stroke-width="1.2"/></svg>
+        <span>Niño</span>
+      </button>
+    </div>
+
+    <!-- Marcador en vivo (Firebase) -->
+    <div class="marcador" id="marcador" hidden>
+      <p class="m-titulo">📊 Marcador en vivo</p>
+      <div class="m-fila">
+        <span class="m-num n" id="mNumN">–</span>
+        <div class="m-pista"><div class="m-llena" id="mBarraN"></div></div>
+        <span class="m-num a" id="mNumO">–</span>
+      </div>
+      <p class="m-total" id="mTotal">Conectando…</p>
+    </div>
+
+    <div class="resultado" id="resVoto" hidden></div>
+  </section>
+
+  <!-- ================= DETALLITO ================= -->
+  <section class="detalles rv">
+    <h3 class="sub">Un detallito con cariño 💌</h3>
+    <div class="regalos">
+      <div class="regalo g-r">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="7.4" rx="8.6" ry="2.7" fill="#FBD9E7" stroke="#E0679B" stroke-width="1.2"/><rect x="3.4" y="7.4" width="17.2" height="13" rx="3" fill="#F7A9C7" stroke="#E0679B" stroke-width="1.2"/><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#fff" transform="translate(12 14.4) scale(.75) translate(-12 -13.6)"/></svg>
+        <b>Toallitas</b><small>si crees que es niña</small>
+      </div>
+      <div class="regalo g-a">
+        <svg viewBox="0 0 24 24"><path d="M4.6 6.2C5 12.5 7.5 16.5 12 18.9c4.5-2.4 7-6.4 7.4-12.7z" fill="#BFE4F6" stroke="#3E96C8" stroke-width="1.2" stroke-linejoin="round"/><rect x="3.8" y="4.4" width="16.4" height="3.2" rx="1.6" fill="#63B8E3" stroke="#3E96C8" stroke-width="1"/><path d="M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z" fill="#fff" transform="translate(12 11.8) scale(.55) translate(-12 -13.6)"/></svg>
+        <b>Pañales</b><small>si crees que es niño</small>
+      </div>
+    </div>
+    <p class="txt">Si crees que es <b class="t-rosa">niña</b>, puedes llevar un paquetito de toallitas. Si crees que es <b class="t-azul">niño</b>, un paquetito de pañales. Será un gesto muy bonito y lleno de cariño para recibir la gran noticia.</p>
+  </section>
+
+  <!-- ================= CUENTA REGRESIVA ================= -->
+  <section class="cuenta rv">
+    <h3 class="sub">Falta poquito… ⏳</h3>
+    <div id="cuentaCuerpo">
+      <div class="tiempos">
+        <div class="tc p"><span class="num" id="nd">--</span><span class="lab">Días</span></div>
+        <div class="tc a"><span class="num" id="nh">--</span><span class="lab">Horas</span></div>
+        <div class="tc p"><span class="num" id="nm">--</span><span class="lab">Min</span></div>
+        <div class="tc a"><span class="num" id="ns">--</span><span class="lab">Seg</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RSVP ================= -->
+  <div class="rsvp rv">
+    <button class="btn btn-wsp" id="btnWsp" type="button">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
+      Confirmar por WhatsApp
+    </button>
+    <button class="btn btn-comp" id="btnCompartir" type="button">Compartir invitación 💌</button>
+  </div>
+
+  <footer class="pie rv">
+    <div class="oso oso-i" id="osoI" aria-hidden="true"></div>
+    <div class="oso oso-d" id="osoD" aria-hidden="true"></div>
+    <p class="esperamos" id="esperamos">¡Los esperamos!</p>
+    <p class="mini">Sábado 24 · 1:00 pm · Ferro Chill</p>
+  </footer>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+
+<script>
+/* ==========================================================
+   ⚙️ CONFIGURACIÓN — edita solo esto
+   ========================================================== */
+const CONFIG = {
+  fecha: new Date(2026, 9, 24, 13, 0, 0), // (año, mes-1, día, hora, min)
+  whatsapp: '50684347461',
+  lugar: 'Ferro Chill, San Rafael de Alajuela, Costa Rica',
+  mapaUrl: 'https://maps.app.goo.gl/1NLAFf84k9sxN7aN7'
+};
+
+/* ================= Utilidades ================= */
+const $ = id => document.getElementById(id);
+const store = {
+  get: k => { try { return localStorage.getItem(k); } catch(e){ return null; } },
+  set: (k,v) => { try { localStorage.setItem(k,v); } catch(e){} }
+};
+const vibrar = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch(e){} };
+let toastT;
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('ver');
+  clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove('ver'), 2600);
+}
+window.mostrarToast = toast;
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= Confetti ================= */
+const lienzo = $('fx'), ctx = lienzo.getContext('2d');
+let partes = [], animando = false, DPR = 1;
+function ajustar(){ DPR = Math.min(window.devicePixelRatio||1, 2); lienzo.width = innerWidth*DPR; lienzo.height = innerHeight*DPR; }
+ajustar(); addEventListener('resize', ajustar);
+
+const COLORES_P = ['#F58FB4','#F9B8D0','#FFD9E8','#E96FA0','#ffffff'];
+const COLORES_A = ['#6FC1E8','#A9DCF6','#D9F1FD','#3E96C8','#ffffff'];
+const COLORES_M = [...COLORES_P, ...COLORES_A, '#FFD98E'];
+const az = Math.random;
+
+function burst(x, y, colores, n = 70){
+  if (reduce) n = 22;
+  for (let i = 0; i < n; i++){
+    partes.push({
+      x, y, vx:(az()-.5)*9, vy:-3-az()*6, g:.16+az()*.06,
+      tam:4+az()*7, rot:az()*6.28, vr:(az()-.5)*.35,
+      col:colores[(az()*colores.length)|0],
+      fig:['h','c','r'][(az()*3)|0],
+      vida:55+az()*50, t:0
+    });
+  }
+  if (!animando){ animando = true; requestAnimationFrame(paso); }
+}
+function paso(){
+  ctx.setTransform(1,0,0,1,0,0);
+  ctx.clearRect(0,0,lienzo.width,lienzo.height);
+  ctx.scale(DPR,DPR);
+  partes = partes.filter(p => p.t < p.vida && p.y < innerHeight + 40);
+  for (const p of partes){
+    p.t++; p.x += p.vx; p.y += p.vy; p.vy += p.g; p.vx *= .988; p.rot += p.vr;
+    const alfa = p.t > p.vida-18 ? Math.max(0,(p.vida-p.t)/18) : 1;
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+    ctx.globalAlpha = alfa; ctx.fillStyle = p.col;
+    const s = p.tam;
+    if (p.fig === 'h'){
+      ctx.beginPath();
+      ctx.moveTo(0, s*.38);
+      ctx.bezierCurveTo(-s*.62, -s*.08, -s*.38, -s*.52, 0, -s*.16);
+      ctx.bezierCurveTo(s*.38, -s*.52, s*.62, -s*.08, 0, s*.38);
+      ctx.fill();
+    } else if (p.fig === 'c'){ ctx.beginPath(); ctx.arc(0,0,s*.32,0,6.29); ctx.fill(); }
+    else { ctx.fillRect(-s*.14, -s*.5, s*.28, s); }
+    ctx.restore();
+  }
+  if (partes.length){ requestAnimationFrame(paso); }
+  else { animando = false; ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,lienzo.width,lienzo.height); }
+}
+
+/* ================= Título letra por letra ================= */
+(function(){
+  const t = $('titulo'), texto = t.textContent.trim();
+  t.textContent = '';
+  [...texto].forEach((ch, i) => {
+    const s = document.createElement('span');
+    s.className = 'l' + (i > 4 ? ' a' : '');
+    s.textContent = ch;
+    s.style.animationDelay = (0.15 + i*0.06) + 's';
+    t.appendChild(s);
+  });
+})();
+
+/* ================= Globos ================= */
+const MINI = 'M12 17.8c-2.7-1.8-4.6-3.6-4.6-5.6a2.6 2.6 0 0 1 4.6-1.7 2.6 2.6 0 0 1 4.6 1.7c0 2-1.9 3.8-4.6 5.6z';
+function svgGlobo(c1, c2){
+  return `<svg viewBox="0 0 60 98" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 58 q8 15 0 30" fill="none" stroke="#B08A62" stroke-width="1.6"/>
+    <ellipse cx="30" cy="29" rx="19.5" ry="24" fill="${c1}" stroke="${c2}" stroke-width="1.5"/>
+    <ellipse cx="23" cy="20" rx="5.5" ry="8.5" fill="#fff" opacity=".45" transform="rotate(-18 23 20)"/>
+    <path d="M30 53 l-5 7 h10 z" fill="${c2}"/>
+    <path d="${MINI}" fill="#fff" opacity=".9" transform="translate(30 27) scale(.8) translate(-12 -13.6)"/>
+  </svg>`;
+}
+document.querySelectorAll('.gw').forEach(g => {
+  g.innerHTML = g.dataset.c === 'p' ? svgGlobo('#F7A9C7','#E77FA8') : svgGlobo('#7CC5E9','#4E9FCC');
+  g.addEventListener('click', () => {
+    if (g.classList.contains('pop')) return;
+    const r = g.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/2, g.dataset.c === 'p' ? COLORES_P : COLORES_A, 55);
+    vibrar(30);
+    g.classList.add('pop');
+    setTimeout(() => { g.classList.remove('pop'); g.classList.add('renace'); setTimeout(()=>g.classList.remove('renace'), 600); }, 6000);
+  });
+});
+
+/* ================= Ositos ================= */
+function svgOso(corazon, lazo){
+  return `<svg viewBox="0 0 100 106" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="29" cy="20" r="11.5" fill="#C9975F" stroke="#A8763C"/><circle cx="71" cy="20" r="11.5" fill="#C9975F" stroke="#A8763C"/>
+    <circle cx="29" cy="20" r="5" fill="#EDD3A8"/><circle cx="71" cy="20" r="5" fill="#EDD3A8"/>
+    ${lazo ? `<path d="M50 13 C45 6 36 7 37 13 C38 18.5 45.5 19.5 50 13z M50 13 C55 6 64 7 63 13 C62 18.5 54.5 19.5 50 13z" fill="#F291B6" stroke="#E0679B"/><circle cx="50" cy="13" r="3" fill="#E0679B"/>` : ''}
+    <circle cx="50" cy="35" r="23" fill="#C9975F" stroke="#A8763C"/>
+    <ellipse cx="50" cy="42" rx="12" ry="9" fill="#F1DDB6"/>
+    <path d="M40 29 q3.5 -4.5 7 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M53 29 q3.5 -4.5 7 0" fill="none" stroke="#4A342A" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="35.5" cy="40" r="3.4" fill="#F2A9BC" opacity=".65"/><circle cx="64.5" cy="40" r="3.4" fill="#F2A9BC" opacity=".65"/>
+    <ellipse cx="50" cy="38" rx="3.6" ry="2.7" fill="#4A342A"/>
+    <path d="M50 40.5 v2.4 M50 42.9 q-2.6 2.8 -5.2 1.1 M50 42.9 q2.6 2.8 5.2 1.1" fill="none" stroke="#4A342A" stroke-width="1.7" stroke-linecap="round"/>
+    <ellipse cx="50" cy="78" rx="23" ry="21" fill="#C9975F" stroke="#A8763C"/>
+    <ellipse cx="50" cy="81" rx="14" ry="12" fill="#F1DDB6"/>
+    <ellipse cx="26.5" cy="72" rx="7.5" ry="12" fill="#C9975F" stroke="#A8763C" transform="rotate(22 26.5 72)"/>
+    <ellipse cx="73.5" cy="72" rx="7.5" ry="12" fill="#C9975F" stroke="#A8763C" transform="rotate(-22 73.5 72)"/>
+    <ellipse cx="37" cy="100" rx="8.5" ry="6.5" fill="#B9854F"/><ellipse cx="63" cy="100" rx="8.5" ry="6.5" fill="#B9854F"/>
+    <circle cx="37" cy="99" r="3" fill="#EDD3A8"/><circle cx="63" cy="99" r="3" fill="#EDD3A8"/>
+    <path d="${MINI}" fill="${corazon}" stroke="#fff" stroke-width=".8" transform="translate(50 82) scale(1.1) translate(-12 -13.6)"/>
+  </svg>`;
+}
+ $('osoI').innerHTML = svgOso('#F58FB4', true);
+ $('osoD').innerHTML = svgOso('#6FC1E8', false);
+[['osoI', COLORES_P], ['osoD', COLORES_A]].forEach(([id, colores]) => {
+  $(id).addEventListener('click', () => {
+    const r = $(id).getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/3, colores, 40);
+    vibrar(25);
+  });
+});
+
+/* ============================================================
+   VOTACIÓN + PELEA DE BEBÉS
+   data-estado: "pelea" | "nina" | "nino"
+   ============================================================ */
+const escena = $('escenaPelea');
+const banner = $('bannerGanador');
+
+function pintarVoto(){
+  const v = store.get('gr_prediccion');
+
+  document.querySelectorAll('.btn-voto').forEach(b => {
+    const sel = b.dataset.voto === v;
+    b.classList.toggle('sel', sel);
+    b.setAttribute('aria-pressed', sel ? 'true' : 'false');
+  });
+
+  let estado = 'pelea';
+  if (v === 'niña') estado = 'nina';
+  else if (v === 'niño') estado = 'nino';
+  if (escena) escena.setAttribute('data-estado', estado);
+
+  if (banner){
+    if (estado === 'nina'){ banner.textContent = '¡GANÓ LA NIÑA!'; banner.classList.add('ver'); }
+    else if (estado === 'nino'){ banner.textContent = '¡GANÓ EL NIÑO!'; banner.classList.add('ver'); }
+    else { banner.textContent = ''; banner.classList.remove('ver'); }
+  }
+
+  const res = $('resVoto');
+  if (v){
+    res.hidden = false;
+    res.className = 'resultado ' + (v === 'niña' ? 'r-nina' : 'r-nino');
+    res.innerHTML = v === 'niña'
+      ? '¡Tu campeón es la <b>NIÑA</b>! 👑💗'
+      : '¡Tu campeón es el <b>NIÑO</b>! 👑💙';
+  } else { res.hidden = true; }
+
+  $('badgeN').hidden = v !== 'niña';
+  $('badgeO').hidden = v !== 'niño';
+}
+
+function votar(v){
+  const anterior = store.get('gr_prediccion');
+  store.set('gr_prediccion', v);
+
+  if (escena){
+    escena.setAttribute('data-estado', 'pelea');
+    void escena.offsetWidth;
+  }
+  pintarVoto();
+
+  const ganador = $(v === 'niña' ? 'bebeNina' : 'bebeNino');
+  if (ganador){
+    const r = ganador.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/3, v === 'niña' ? COLORES_P : COLORES_A, 90);
+  }
+  vibrar([30,40,30]);
+  toast(v === 'niña' ? '¡Ganó la niña! 👑💗' : '¡Ganó el niño! 👑💙');
+
+  // Registrar en el marcador en vivo (Firebase)
+  if (window.fbRegistrarVoto) window.fbRegistrarVoto(v, anterior);
+  else window.__votoPendiente = { voto: v, anterior };
+}
+
+document.querySelectorAll('.btn-voto').forEach(b =>
+  b.addEventListener('click', () => votar(b.dataset.voto))
+);
+document.querySelectorAll('.bebe[data-voto]').forEach(el => {
+  el.addEventListener('click', () => votar(el.dataset.voto));
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); votar(el.dataset.voto); }
+  });
+});
+pintarVoto();
+
+/* ================= Cuenta regresiva ================= */
+const pad = n => String(n).padStart(2, '0');
+const ultimo = {};
+function tic(){
+  const dif = CONFIG.fecha - Date.now();
+  if (dif <= 0){
+    $('cuentaCuerpo').innerHTML = '<p class="llego">¡Llegó el gran día! 🎉💕</p>';
+    clearInterval(intervalo); return;
+  }
+  act('d', Math.floor(dif/864e5));
+  act('h', Math.floor(dif/36e5) % 24);
+  act('m', Math.floor(dif/6e4) % 60);
+  act('s', Math.floor(dif/1e3) % 60);
+}
+function act(k, v){
+  if (ultimo[k] === v) return;
+  const el = $('n' + k);
+  el.textContent = pad(v); ultimo[k] = v;
+  if (k === 's'){ el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); }
+}
+const intervalo = setInterval(tic, 1000); tic();
+
+/* ================= Calendario (.ics) ================= */
+ $('btnCal').addEventListener('click', () => {
+  const f = CONFIG.fecha, fin = new Date(f.getTime() + 3*36e5);
+  const fmt = d => `${d.getFullYear()}${pad(d.getMonth()+1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Revelacion//ES','BEGIN:VEVENT',
+    `UID:${Date.now()}@revelacion`,`DTSTAMP:${fmt(f)}`,`DTSTART:${fmt(f)}`,`DTEND:${fmt(fin)}`,
+    'SUMMARY:Revelación de Género 💕💙',
+    `LOCATION:${CONFIG.lugar.replace(/,/g,'\\,')}`,
+    'DESCRIPTION:¡Te esperamos! No olvides tu color (rosa o azul) y tu paquetito de toallitas o pañales.',
+    'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:¡Mañana es la Revelación de Género! 🎈','END:VALARM',
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'}));
+  a.download = 'revelacion-de-genero.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  toast('📅 ¡Listo para guardar en tu calendario!');
+});
+
+/* ================= Maps (enlace exacto) ================= */
+ $('btnMapa').addEventListener('click', () => {
+  window.open(CONFIG.mapaUrl, '_blank');
+});
+
+/* ================= WhatsApp ================= */
+ $('btnWsp').addEventListener('click', () => {
+  const v = store.get('gr_prediccion');
+  let msg = '¡Hola! 💕 Confirmo mi asistencia a la Revelación de Género 🎈';
+  if (v) msg += v === 'niña' ? '\nMi predicción: ¡será NIÑA! 👗💗' : '\nMi predicción: ¡será NIÑO! 👶💙';
+  window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+});
+
+/* ================= Compartir ================= */
+ $('btnCompartir').addEventListener('click', async () => {
+  const datos = {
+    title: 'Revelación de Género 💕💙',
+    text: '¡Estás invitado a nuestra Revelación de Género! 🎈 Sábado 24 de octubre, 1:00 pm · Ferro Chill, San Rafael de Alajuela 💕'
+  };
+  if (navigator.share){ try { await navigator.share(datos); } catch(e){} }
+  else {
+    try { await navigator.clipboard.writeText(datos.text); toast('Invitación copiada 💌'); }
+    catch(e){ toast('No se pudo copiar 😅'); }
+  }
+});
+
+/* ================= Sorpresas ================= */
+ $('btnCorazon').addEventListener('click', () => {
+  const r = $('btnCorazon').getBoundingClientRect();
+  burst(r.left + r.width/2, r.top + r.height/2, COLORES_M, 80);
+  vibrar(40);
+  toast('🤫 No decimos nada… ¡sábado 24 de octubre!');
+});
+ $('esperamos').addEventListener('click', e => {
+  burst(e.clientX || innerWidth/2, e.clientY || innerHeight/2, COLORES_M, 60);
+  toast('🥳 ¡Nos vemos el 24 de octubre!');
+});
+
+/* ================= Música de cajita ================= */
+const FREQ = {C4:261.63, D4:293.66, E4:329.63, F4:349.23, G4:392.00, A4:440.00};
+const MELODIA = [
+  ['C4',1],['C4',1],['G4',1],['G4',1],['A4',1],['A4',1],['G4',2],
+  ['F4',1],['F4',1],['E4',1],['E4',1],['D4',1],['D4',1],['C4',2],
+  ['G4',1],['G4',1],['F4',1],['F4',1],['E4',1],['E4',1],['D4',2],
+  ['G4',1],['G4',1],['F4',1],['F4',1],['E4',1],['E4',1],['D4',2],
+  ['C4',1],['C4',1],['G4',1],['G4',1],['A4',1],['A4',1],['G4',2],
+  ['F4',1],['F4',1],['E4',1],['E4',1],['D4',1],['D4',1],['C4',2]
+];
+const BEAT = 0.42;
+let ac = null, masterG = null, musicOn = false, notaIdx = 0, musicTimer = null;
+function initAudio(){
+  ac = new (window.AudioContext || window.webkitAudioContext)();
+  masterG = ac.createGain(); masterG.gain.value = .5;
+  masterG.connect(ac.destination);
+  const del = ac.createDelay(); del.delayTime.value = .30;
+  const fb = ac.createGain(); fb.gain.value = .25;
+  const wet = ac.createGain(); wet.gain.value = .18;
+  masterG.connect(del); del.connect(fb); fb.connect(del); del.connect(wet); wet.connect(ac.destination);
+}
+function tono(f, d){
+  const t = ac.currentTime;
+  const o = ac.createOscillator(); o.type = 'triangle'; o.frequency.value = f;
+  const g = ac.createGain();
+  g.gain.setValueAtTime(.0001, t);
+  g.gain.exponentialRampToValueAtTime(.16, t + .02);
+  g.gain.exponentialRampToValueAtTime(.0001, t + d * .92);
+  o.connect(g).connect(masterG); o.start(t); o.stop(t + d);
+  const o2 = ac.createOscillator(); o2.type = 'sine'; o2.frequency.value = f * 2;
+  const g2 = ac.createGain();
+  g2.gain.setValueAtTime(.0001, t);
+  g2.gain.exponentialRampToValueAtTime(.05, t + .02);
+  g2.gain.exponentialRampToValueAtTime(.0001, t + d * .7);
+  o2.connect(g2).connect(masterG); o2.start(t); o2.stop(t + d);
+}
+function paso(){
+  if (!musicOn) return;
+  const [n, d] = MELODIA[notaIdx];
+  tono(FREQ[n], d * BEAT);
+  notaIdx = (notaIdx + 1) % MELODIA.length;
+  const pausa = notaIdx === 0 ? 1000 : 0;
+  musicTimer = setTimeout(paso, d * BEAT * 1000 + pausa);
+}
+ $('btnMusica').addEventListener('click', () => {
+  if (!ac) initAudio();
+  if (ac.state === 'suspended') ac.resume();
+  musicOn = !musicOn;
+  $('btnMusica').classList.toggle('on', musicOn);
+  if (musicOn){ notaIdx = 0; paso(); toast('Música encendida 🎶'); }
+  else { clearTimeout(musicTimer); toast('Música apagada 🤫'); }
+});
+
+/* ================= Aparición al hacer scroll ================= */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting){ e.target.classList.add('visto'); io.unobserve(e.target); }
+}), {threshold:.12});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ================= Pista inicial ================= */
+setTimeout(() => {
+  if (!store.get('gr_tip')){ toast('Psst… ¡toca los globos! 🎈'); store.set('gr_tip','1'); }
+}, 2600);
+</script>
+
+<!-- ============================================================
+     🔥 FIREBASE (Realtime Database) — MARCADOR EN VIVO
+     Configuración ya integrada ✓
+     ============================================================ -->
+<script type="module">
+(async () => {
+  const firebaseConfig = {
+    apiKey: "AIzaSyCs2PWT86AYJWlpUDK3_rhBT45KGX4VP8Y",
+    authDomain: "revelacion-de-genero-31b72.firebaseapp.com",
+    databaseURL: "https://revelacion-de-genero-31b72-default-rtdb.firebaseio.com",
+    projectId: "revelacion-de-genero-31b72",
+    storageBucket: "revelacion-de-genero-31b72.firebasestorage.app",
+    messagingSenderId: "225839051860",
+    appId: "1:225839051860:web:4a16e992703fe7c13c69c1"
+  };
+
+  const marcador = document.getElementById('marcador');
+  const numN     = document.getElementById('mNumN');
+  const numO     = document.getElementById('mNumO');
+  const barraN   = document.getElementById('mBarraN');
+  const totalEl  = document.getElementById('mTotal');
+  const toast    = m => window.mostrarToast && window.mostrarToast(m);
+
+  try {
+    const { initializeApp } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js');
+    const { getDatabase, ref, onValue, runTransaction } = await import('https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js');
+
+    const db       = getDatabase(initializeApp(firebaseConfig));
+    const refVotos = ref(db, 'votos');
+
+    // Suma/resta el voto de este dispositivo (si cambian de opinión, corrige el anterior)
+    window.fbRegistrarVoto = async (voto, anterior) => {
+      if (voto === anterior) return;
+      try {
+        await runTransaction(refVotos, cur => {
+          const d = cur || { nina: 0, nino: 0 };
+          const n = { nina: d.nina || 0, nino: d.nino || 0 };
+          if (anterior === 'niña') n.nina = Math.max(0, n.nina - 1);
+          if (anterior === 'niño') n.nino = Math.max(0, n.nino - 1);
+          if (voto === 'niña') n.nina++;
+          if (voto === 'niño') n.nino++;
+          return n;
+        });
+      } catch(e){
+        toast('No se pudo sincronizar tu voto 😕');
+      }
+    };
+
+    // Si el usuario votó antes de que Firebase cargara
+    if (window.__votoPendiente){
+      const p = window.__votoPendiente; window.__votoPendiente = null;
+      window.fbRegistrarVoto(p.voto, p.anterior);
+    }
+
+    // Escucha en tiempo real y pinta los porcentajes
+    onValue(refVotos, snap => {
+      const d = snap.val() || { nina: 0, nino: 0 };
+      const total = (d.nina || 0) + (d.nino || 0);
+      const pn = total ? Math.round(100 * (d.nina || 0) / total) : 50;
+      marcador.hidden = false;
+      numN.textContent = total ? pn + '%' : '–';
+      numO.textContent = total ? (100 - pn) + '%' : '–';
+      barraN.style.width = pn + '%';
+      totalEl.textContent = total === 0
+        ? 'Aún no hay predicciones… ¡sé la primera persona en votar! 🎈'
+        : total + (total === 1 ? ' predicción hasta ahora' : ' predicciones hasta ahora');
+    }, () => {
+      totalEl.textContent = 'Sin conexión al marcador 😕';
+    });
+  } catch(e){
+    marcador.hidden = true;
+  }
+})();
+</script>
+</body>
+</html>
