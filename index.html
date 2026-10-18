@@ -578,7 +578,7 @@
    ⚙️ CONFIGURACIÓN — edita solo esto
    ========================================================== */
 const CONFIG = {
-  fecha: new Date(2026, 9, 24, 13, 0, 0), // (año, mes-1, día, hora, min)
+  fecha: new Date(2026, 9, 31, 16, 0, 0), // Sábado 31 de octubre 2026, 4:00 pm (año, mes-1, día, hora, min)
   whatsapp: '50684347461',
   lugar: 'Ferro Chill, San Rafael de Alajuela, Costa Rica',
   mapaUrl: 'https://maps.app.goo.gl/1NLAFf84k9sxN7aN7'
@@ -847,7 +847,7 @@ const intervalo = setInterval(tic, 1000); tic();
  $('btnCompartir').addEventListener('click', async () => {
   const datos = {
     title: 'Revelación de Género 💕💙',
-    text: '¡Estás invitado a nuestra Revelación de Género! 🎈 Sábado 24 de octubre, 1:00 pm · Ferro Chill, San Rafael de Alajuela 💕'
+    text: '¡Estás invitado a nuestra Revelación de Género! 🎈 Sábado 31 de octubre, 4:00 pm · Ferro Chill, San Rafael de Alajuela 💕'
   };
   if (navigator.share){ try { await navigator.share(datos); } catch(e){} }
   else {
@@ -861,11 +861,11 @@ const intervalo = setInterval(tic, 1000); tic();
   const r = $('btnCorazon').getBoundingClientRect();
   burst(r.left + r.width/2, r.top + r.height/2, COLORES_M, 80);
   vibrar(40);
-  toast('🤫 No decimos nada… ¡sábado 24 de octubre!');
+  toast('🤫 No decimos nada… ¡sábado 31 de octubre!');
 });
  $('esperamos').addEventListener('click', e => {
   burst(e.clientX || innerWidth/2, e.clientY || innerHeight/2, COLORES_M, 60);
-  toast('🥳 ¡Nos vemos el 24 de octubre!');
+  toast('🥳 ¡Nos vemos el 31 de octubre!');
 });
 
 /* ================= Aparición al hacer scroll ================= */
